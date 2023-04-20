@@ -1,0 +1,36 @@
+:host {
+    display: flex;
+    margin-right: 30%;
+    margin-bottom: 5%;
+
+    .search-card {
+        display: flex;
+        flex-direction: column;
+        width: 580px;
+        height: 390px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 8px;
+        align-items: center;
+
+        .date-pick {
+
+            .date-select {
+                width: 532px;
+                height: 56px;
+                user-select: none;
+                outline: none;
+                border: solid 0.5px;
+                border-radius: 4px;
+                border-color: #CECECE;
+                background-color: rgba(244, 246, 249, 1);
+                font-family: Roboto;
+                color: black;
+            }
+
+            .date-select:focus {
+                color: #000000;
+                background-color: #E9EDF1;
+            }
+        }
+    }
+}
