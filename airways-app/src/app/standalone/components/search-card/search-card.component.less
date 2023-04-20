@@ -12,24 +12,25 @@
         border-radius: 8px;
         align-items: center;
 
-        .date-pick {
+        .road-radio {
+            margin-right: auto;
+            padding-bottom: 20px;
 
-            .date-select {
-                width: 532px;
-                height: 56px;
-                user-select: none;
-                outline: none;
-                border: solid 0.5px;
-                border-radius: 4px;
-                border-color: #CECECE;
-                background-color: rgba(244, 246, 249, 1);
-                font-family: Roboto;
-                color: black;
+            .round-trip {
+                margin-left: 15px;
             }
+            
+            .one-way {
+                margin-left: 100px;
+            }
+        }
 
-            .date-select:focus {
-                color: #000000;
-                background-color: #E9EDF1;
+        .road-field {
+            width: 532px;
+
+            ::ng-deep .mat-mdc-text-field-wrapper {
+                border: solid 1px #b2b0b0;
+                border-radius: 4px;
             }
         }
     }
