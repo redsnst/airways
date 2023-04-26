@@ -1,22 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MaterialModule } from '../../moduls/material.module';
 
 @Component({
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
   styleUrls: ['./search-card.component.less'],
-  imports: [FormsModule, MatSelectModule, CommonModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
+  imports: [
+    MaterialModule,
+  ],
   standalone: true,
 })
-export class SearchCardComponent {
-  public toppings = new FormControl('');
+export class SearchCardComponent implements OnInit {
+  public toppings = new FormControl([{}]);
 
-  public toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  public toppingList: any[] = [{ person: 'Adults', count: 0 }, { person: 'Child', count: 0 }, { person: 'Infant', count: 0 }];
 
   public nodes: any[] = [{
     key: '0',
@@ -37,4 +35,8 @@ export class SearchCardComponent {
     key: '5',
     label: 'Catania (CTA)',
   }];
+
+  public ngOnInit(): void {
+    this.toppings.setValue(this.toppingList);
+  }
 }
