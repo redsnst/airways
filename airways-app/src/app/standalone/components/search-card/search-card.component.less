@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    margin-right: 30%;
+    margin-bottom: 5%;
+
+    .search-card {
+        display: flex;
+        flex-direction: column;
+        width: 580px;
+        height: 390px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 8px;
+        align-items: center;
+
+        .road-radio {
+            margin-right: auto;
+            padding-bottom: 20px;
+            margin-top: 20px;
+
+            .round-trip {
+                margin-left: 15px;
+            }
+            
+            .one-way {
+                margin-left: 100px;
+            }
+        }
+
+        .road-field {
+            width: 532px;
+
+            ::ng-deep .mat-mdc-text-field-wrapper {
+                border: solid 1px #b2b0b0;
+                border-radius: 4px;
+            }
+        }
+
+        .date-and-pass {
+            display: flex;
+
+            .passengers {
+                margin-left: 50px;
+            }
+        }
+    }
+}

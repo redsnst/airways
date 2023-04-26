@@ -1,0 +1,41 @@
+<div class="search-card">
+    <mat-radio-group class="road-radio" aria-label="Select an option">
+        <mat-radio-button class="round-trip" value="1">Round Trip</mat-radio-button>
+        <mat-radio-button class="one-way" value="2">One Way</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field class="road-field" appearance="fill">
+        <mat-label>From</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let node of nodes" [value]="node.key">{{node.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="road-field" appearance="fill">
+        <mat-label>Destination</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let node of nodes" [value]="node.key">{{node.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="date-and-pass">
+      <mat-form-field appearance="fill">
+        <mat-label>Dates</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <mat-form-field class="passengers" appearance="fill">
+        <mat-label>Passengers</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-select-trigger>
+            Adult
+            <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option class="passengers-count" disabled *ngFor="let topping of toppingList" [value]="topping">{{topping.person}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+</div>
